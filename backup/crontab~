@@ -1,1 +1,0 @@
-*/5 * * * * wget -O - -q -t 1  http://localhost/drupalsite/cron.php?cron_key=S_L5-woPXrJCqf9I8ehCWjUiQ0RvGwX7WfaB2P2nhYI

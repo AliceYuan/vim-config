@@ -1,4 +1,0 @@
-name: Menu Mangler
-description: idk what this does
-core: 7.x
-dependencies[]: menu_magic

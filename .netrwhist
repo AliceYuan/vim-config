@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/var/www/drupal7/themes/ninesixtyrobots/css'
-let g:netrw_dirhist_2='/home/alice/Websites/Drupal/cbc/docroot/sites/all/themes/custom_theme/customer_love/css/sass'
-let g:netrw_dirhist_3='/home/alice/Websites/Drupal/cbc/docroot/sites/all/themes/custom_theme/customer_love'

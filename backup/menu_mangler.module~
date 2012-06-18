@@ -1,0 +1,11 @@
+<?php
+
+/*
+ * Implements hook_page_alter()
+ */
+
+function menu_mangler_page_alter(&$page) {
+  if (arg(0) =='magic') {
+    dsm($page);
+  }
+}

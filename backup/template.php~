@@ -1,0 +1,164 @@
+<?php
+
+/**
+ * @file
+ * template.php for ninesixty theme
+ *
+ * Implement preprocess functions alter hooks in this file.
+ */
+
+/**
+ * Preprocess function for page.tpl.php.
+ */
+
+
+
+function ninesixtyrobots_preprocess_page(&$variables){
+  $use_twitter = theme_get_setting('use_twitter');
+
+  if ($use_twitter){
+    if ($cache = cache_get('ninesixtyrobots_tweets')){
+      $data = $cache->data;
+    }
+    else{
+      $query = theme_get_setting('twitter_search_term');
+      $query = drupal_encode_path($query);
+
+      $response = drupal_http_request('http://search.twitter.com/search.json?q=' . $query);
+      if ($response -> code == 200){
+        $data = json_decode($response->data);
+        // set a 5 min cache of retriving tweets.
+        // Note if this isn't updating on your site *run cron*
+        cache_set('ninesixtyrobots_tweets', $data, 'cache',300);
+      }
+    }
+    $tweet = $data->results[array_rand($data->results)];
+    // Create the actual variable
+    $variables ['site_slogan'] = check_plain(html_entity_decode($tweet->text));
+  }
+
+
+  //Add new variables to page.tpl
+  if ($variables['logged_in']){
+    $variables['footer_message']=t('Welcome @username, Lullabot loves you!', array('@username' => $variables['user']->name));
+  }else{
+    $variables['footer_message'] = t('Lullabot loves you!');
+  }
+
+
+  if ($variables['is_front']==TRUE){
+    drupal_add_css(path_to_theme().'/css/front.css', array('group'=> CSS_THEME, 'weight'=>-10));
+  }
+}
+
+
+/**
+ * Preprocess function for node.tpl.php.
+ */
+
+function ninesixtyrobots_preprocess_node(&$variables){
+
+
+
+  if($variables['type']=='article'){
+    $node = $variables['node'];
+    $variables['submitted_day'] = format_date($node->created, 'custom','j');
+
+    $variables['submitted_month'] = format_date($node->created, 'custom','M');
+    $variables['submitted_year'] = format_date($node->created, 'custom','Y');
+  }
+  if ($variables['type']=='page'){
+    $today = strtolower(date('l'));
+    $variables['theme_hook_suggestions'][] = 'node__'.$today;
+    $variables['day_of_week']=$today;
+  }
+}
+
+function ninesixtyrobots_breadcrumb($variables) {
+  $breadcrumb = $variables['breadcrumb'];
+
+  if (!empty($breadcrumb)) {
+    // Provide a navigational heading to give context for breadcrumb links to
+    // screen-reader users. Make the heading invisible with .element-invisible.
+    $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
+    $delimiter = theme_get_setting('breadcrumb_delimiter');
+    $title = drupal_get_title();
+    $output .= '<div class="breadcrumb">' . implode($delimiter, $breadcrumb) . $delimiter.$title . '</div>';
+    return $output;
+  }
+
+
+}
+
+// theme_username().
+function ninesixtyrobots_preprocess_username(&$variables){
+  $account = user_load($variables['account']->uid);
+
+  if (isset($account->field_real_name[LANGUAGE_NONE][0]['safe_value'])){
+    $variables['name'] = $account->field_real_name[LANGUAGE_NONE][0]['safe_value'];
+  }
+}
+
+
+function ninesixtyrobots_field__field_tags($variables) {
+  $output = '';
+
+  $links = array();
+  foreach ($variables['items'] as $delta => $item) {
+    $item['#options']['attributes'] += $variables['item_attributes_array'][$delta];
+    $links[] = drupal_render($item);
+  }
+
+  $output .= implode(',',$links);
+
+
+  return $output;
+}
+
+
+
+function ninesixtyrobots_css_alter(&$css){
+  unset($css['modules/system/system.menus.css']);
+}
+
+function ninesixtyrobots_page_alter(&$page){
+  if (arg(0) == 'node' && is_numeric(arg(1))){
+    $nid =arg(1);
+    $image = $page['content']['system_main']['nodes'][$nid]['field_image'];
+    array_unshift($page['sidebar_first'], array('image'=>$image));
+    unset($page['content']['system_main']['nodes'][$nid]['field_image']);
+  }
+}
+
+
+function ninesixtyrobots_form_alter(&$form, &$form_state, $form_id){
+  if ($form_id == 'search_block_form'){
+    $form['actions']['submit']['#type'] = 'image_button';
+    $form['actions']['submit']['#src'] = drupal_get_path('theme','ninesixtyrobots').'/images/search.png';
+    $form['actions']['submit']['#attributes']['class'][] = 'btn';
+  }
+}
+
+
+
+
+function ninesixtyrobots_form_user_login_alter(&$form, &$form_state ){
+  $form['name']['#title'] = t('Name');
+}
+
+function ninesixtyrobots_theme($existing, $type, $theme, $path) {
+    return array(
+      'comment_form' => array(
+        'render element' => 'form',
+        'template' => 'comment-form',
+    ),
+  );
+}
+
+
+function ninesixty_preprocess_comment_form(&$variables){
+  $variables['author_field'] = drupal_render($variables['form']['author']);
+  $variables['subject_field'] = drupal_render($variables['form']['subject']);
+  hide($variables['form']['comment_body']['und'][0]['format']);
+  $variables['everything_else'] = drupal_render_children($variables['form']);
+}

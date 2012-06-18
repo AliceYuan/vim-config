@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC>
+<html>
+  <head>
+    <title> Software Engineering Prospectives </title>
+    <link type="text/css" rel="stylesheet" media="all" href="css/layout.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/style.css" />
+  </head>
+  <body>
+    <div id="page-wrap">
+      <!--header starts -->
+      <div id="header-wrap">
+        <div id="header">
+          <div id="header-main">
+
+            <h1 id="header-title"> <a href="#"> Title</a> </h1>
+            <p id="header-slogan"> Slogan </p>
+          </div>
+          <!-- navigation bar -->
+          <div id="nav">
+            <ul>
+              <li> <a href="#" title ="">Questions</a></li>
+              <li><a href="#">Log in </a></li>
+            </ul>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

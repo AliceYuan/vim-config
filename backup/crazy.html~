@@ -1,0 +1,561 @@
+
+<head>
+	<title>Tic.Tac.Toe</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="/static/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="static/helper.js"></script>
+	<script type="text/javascript" src="static/prototype.js"></script>
+	<link href="/static/slider.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+
+	<div class="main">
+	<!-- HEADER -->
+	<div class="header">
+		<div class="header_resize">
+				<div class="logo">
+						<h1><a href="app.html">Tic<span>Tac</span>Toe</a><br></h1>
+        <div id="menu">
+			<div id="m-top">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/original">Original</a></li>
+					<li><a href="/vscomp">Vs. Computer</a><li>
+					<li><a href="/crazy">Cr@Zy</a></li>
+					<li><a href="/info">Game Info</a></li>
+					<li class="active"><a href="/developers">Developers</a></li>
+				</ul>
+			</div>
+			<div id="m-slider">
+				<div id="slider"></div>
+			</div>
+        </div>
+        </div>
+	</div>
+	</div>
+		<!-- end HEADER -->
+		
+		
+	<div class="game">
+			<table>
+				<tr><td>
+					<form action="/crazy" method="post">
+						<table id = "MatrixBoard" >
+							<img id = "Blank" src= "/static/blank.png" style="{{blank_image}}">
+							<tr class = "bigrow1">
+								<td class="gametable" id="table1" style="border: 3px solid {{highlight_current.0}}" background={{trans_img.0}}>
+									<table>
+										<tr>
+											<td id ="t1c1r1">
+												<button value="t1c1r1" name="block" style={{button_color.0.0.0}}>
+													<img src="/static/{{t1c1r1}}">
+												</button>
+											</td>
+											<td id ="t1c2r1">
+												<button value="t1c2r1" name="block" style={{button_color.0.0.1}}>
+													<img src="/static/{{t1c2r1}}">
+												</button>
+											</td>
+											<td id ="t1c3r1">
+												<button value="t1c3r1" name="block"  style={{button_color.0.0.2}}>
+													<img src="/static/{{t1c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t1c1r2">
+												<button value="t1c1r2" name="block"  style={{button_color.0.1.0}}>
+													<img src="/static/{{t1c1r2}}">
+												</button>
+											</td>
+											<td id ="t1c2r2">
+												<button value="t1c2r2" name="block"  style={{button_color.0.1.1}}>
+													<img src="/static/{{t1c2r2}}">
+												</button>
+											</td>
+											<td id ="t1c3r2">
+												<button value="t1c3r2" name="block"  style={{button_color.0.1.2}}>
+													<img src="/static/{{t1c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t1c1r3">
+												<button value="t1c1r3" name="block" style={{button_color.0.2.0}}>
+													<img src="/static/{{t1c1r3}}">
+												</button>
+											</td>
+											<td id ="t1c2r3">
+												<button value="t1c2r3" name="block" style={{button_color.0.2.1}}>
+													<img src="/static/{{t1c2r3}}">
+												</button>
+											</td>
+											<td id ="t1c3r3">
+												<button value="t1c3r3" name="block"  style={{button_color.0.2.2}}>
+													<img src="/static/{{t1c3r3}}">
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="gametable" id="table2"  background={{trans_img.1}} style="border: 3px solid {{highlight_current.1}}">
+									<table>
+										<tr>
+											<td id ="t2c1r1">
+												<button value="t2c1r1" name="block" style={{button_color.1.0.0}}>
+													<img src="/static/{{t2c1r1}}">
+												</button>
+											</td>
+											<td id ="t2c2r1">
+												<button value="t2c2r1" name="block" style={{button_color.1.0.1}}>
+													<img src="/static/{{t2c2r1}}">
+												</button>
+											</td>
+											<td id ="t2c3r1">
+												<button value="t2c3r1" name="block"  style={{button_color.1.0.2}}>
+													<img src="/static/{{t2c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t2c1r2">
+												<button value="t2c1r2" name="block"  style={{button_color.1.1.0}}>
+													<img src="/static/{{t2c1r2}}">
+												</button>
+											</td>
+											<td id ="t2c2r2">
+												<button value="t2c2r2" name="block"  style={{button_color.1.1.1}}>
+													<img src="/static/{{t2c2r2}}">
+												</button>
+											</td>
+											<td id ="t2c3r2">
+												<button value="t2c3r2" name="block"  style={{button_color.1.1.2}}>
+													<img src="/static/{{t2c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t2c1r3">
+												<button value="t2c1r3" name="block" style={{button_color.1.2.0}}>
+													<img src="/static/{{t2c1r3}}">
+												</button>
+											</td>
+											<td id ="t2c2r3">
+												<button value="t2c2r3" name="block" style={{button_color.1.2.1}}>
+													<img src="/static/{{t2c2r3}}">
+												</button>
+											</td>
+											<td id ="t2c3r3">
+												<button value="t2c3r3" name="block"  style={{button_color.1.2.2}}>
+													<img src="/static/{{t2c3r3}}">
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="gametable" id="table3"  background={{trans_img.2}} style="border: 3px solid {{highlight_current.2}}">
+									<table>
+										<tr>
+											<td id ="t3c1r1">
+												<button value="t3c1r1" name="block" style={{button_color.2.0.0}}>
+													<img src="/static/{{t3c1r1}}">
+												</button>
+											</td>
+											<td id ="t3c2r1">
+												<button value="t3c2r1" name="block" style={{button_color.2.0.1}}>
+													<img src="/static/{{t3c2r1}}">
+												</button>
+											</td>
+											<td id ="t3c3r1">
+												<button value="t3c3r1" name="block"  style={{button_color.2.0.2}}>
+													<img src="/static/{{t3c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t3c1r2">
+												<button value="t3c1r2" name="block"  style={{button_color.2.1.0}}>
+													<img src="/static/{{t3c1r2}}">
+												</button>
+											</td>
+											<td id ="t3c2r2">
+												<button value="t3c2r2" name="block"  style={{button_color.2.1.1}}>
+													<img src="/static/{{t3c2r2}}">
+												</button>
+											</td>
+											<td id ="t3c3r2">
+												<button value="t3c3r2" name="block"  style={{button_color.2.1.2}}>
+													<img src="/static/{{t3c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t3c1r3">
+												<button value="t3c1r3" name="block" style={{button_color.2.2.0}}>
+													<img src="/static/{{t3c1r3}}">
+												</button>
+											</td>
+											<td id ="t3c2r3">
+												<button value="t3c2r3" name="block" style={{button_color.2.2.1}}>
+													<img src="/static/{{t3c2r3}}">
+												</button>
+											</td>
+											<td id ="t3c3r3">
+												<button value="t3c3r3" name="block"  style={{button_color.2.2.2}}>
+													<img src="/static/{{t3c3r3}}">
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr class="bigrow2">
+								<td class="gametable" id="table4"  background={{trans_img.3}} style="border: 3px solid {{highlight_current.3}}">
+									<table>
+										<tr>
+											<td id ="t4c1r1">
+												<button value="t4c1r1" name="block"  style={{button_color.3.1.0}}>
+													<img src="/static/{{t4c1r1}}">
+												</button>
+											</td>
+											<td id ="t4c2r1">
+												<button value="t4c2r1" name="block"  style={{button_color.3.1.1}}>
+													<img src="/static/{{t4c2r1}}">
+												</button>
+											</td>
+											<td id ="t4c3r1">
+												<button value="t4c3r1" name="block"  style={{button_color.3.1.2}}>
+													<img src="/static/{{t4c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t4c1r2">
+												<button value="t4c1r2" name="block"  style={{button_color.3.1.0}}>
+													<img src="/static/{{t4c1r2}}">
+												</button>
+											</td>
+											<td id ="t4c2r2">
+												<button value="t4c2r2" name="block"  style={{button_color.3.1.1}}>
+													<img src="/static/{{t4c2r2}}">
+												</button>
+											</td>
+											<td id ="t4c3r2">
+												<button value="t4c3r2" name="block"  style={{button_color.3.1.2}}>
+													<img src="/static/{{t4c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t4c1r3">
+												<button value="t4c1r3" name="block" style={{button_color.3.2.0}}>
+													<img src="/static/{{t4c1r3}}">
+												</button>
+											</td>
+											<td id ="t4c2r3">
+												<button value="t4c2r3" name="block" style={{button_color.3.2.1}}>
+													<img src="/static/{{t4c2r3}}">
+												</button>
+											</td>
+											<td id ="t4c3r3">
+												<button value="t4c3r3" name="block"  style={{button_color.3.2.2}}>
+													<img src="/static/{{t4c3r3}}">
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="gametable" id="table5"  background={{trans_img.4}} style="border: 3px solid {{highlight_current.4}}">
+									<table>
+										<tr>
+											<td id ="t5c1r1">
+												<button value="t5c1r1" name="block" style={{button_color.4.0.0}}>
+													<img src="/static/{{t5c1r1}}">
+												</button>
+											</td>
+											<td id ="t5c2r1">
+												<button value="t5c2r1" name="block" style={{button_color.4.0.1}}>
+													<img src="/static/{{t5c2r1}}">
+												</button>
+											</td>
+											<td id ="t5c3r1">
+												<button value="t5c3r1" name="block"  style={{button_color.4.0.2}}>
+													<img src="/static/{{t5c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t5c1r2">
+												<button value="t5c1r2" name="block"  style={{button_color.4.1.0}}>
+													<img src="/static/{{t5c1r2}}">
+												</button>
+											</td>
+											<td id ="t5c2r2">
+												<button value="t5c2r2" name="block"  style={{button_color.4.1.1}}>
+													<img src="/static/{{t5c2r2}}">
+												</button>
+											</td>
+											<td id ="t5c3r2">
+												<button value="t5c3r2" name="block"  style={{button_color.4.1.2}}>
+													<img src="/static/{{t5c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t5c1r3">
+												<button value="t5c1r3" name="block" style={{button_color.4.2.0}}>
+													<img src="/static/{{t5c1r3}}">
+												</button>
+											</td>
+											<td id ="t5c2r3">
+												<button value="t5c2r3" name="block" style={{button_color.4.2.1}}>
+													<img src="/static/{{t5c2r3}}">
+												</td>
+												<td id ="t5c3r3">
+													<button value="t5c3r3" name="block"  style={{button_color.4.2.2}}>
+														<img src="/static/{{t5c3r3}}">
+													</button>
+												</td>
+											</tr>
+										</tr>
+									</table>
+								</td>
+								<td class="gametable" id="table6"  background={{trans_img.5}} style="border: 3px solid {{highlight_current.5}}">
+									<table>
+										<tr>
+											<td id ="t6c1r1">
+												<button value="t6c1r1" name="block" style={{button_color.5.0.0}}>
+													<img src="/static/{{t6c1r1}}">
+												</button>
+											</td>
+											<td id ="t6c2r1">
+												<button value="t6c2r1" name="block" style={{button_color.5.0.1}}>
+													<img src="/static/{{t6c2r1}}">
+												</button>
+											</td>
+											<td id ="t6c3r1">
+												<button value="t6c3r1" name="block"  style={{button_color.5.0.2}}>
+													<img src="/static/{{t6c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t6c1r2">
+												<button value="t6c1r2" name="block"  style={{button_color.5.1.0}}>
+													<img src="/static/{{t6c1r2}}">
+												</button>
+											</td>
+											<td id ="t6c2r2">
+												<button value="t6c2r2" name="block"  style={{button_color.5.1.1}}>
+													<img src="/static/{{t6c2r2}}">
+												</button>
+											</td>
+											<td id ="t6c3r2">
+												<button value="t6c3r2" name="block"  style={{button_color.5.1.2}}>
+													<img src="/static/{{t6c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t6c1r3">
+												<button value="t6c1r3" name="block" style={{button_color.5.2.0}}>
+													<img src="/static/{{t6c1r3}}">
+												</button>
+											</td>
+											<td id ="t6c2r3">
+												<button value="t6c2r3" name="block" style={{button_color.5.2.1}}>
+													<img src="/static/{{t6c2r3}}">
+												</button>
+											</td>
+											<td id ="t6c3r3">
+												<button value="t6c3r3" name="block"  style={{button_color.5.2.2}}>
+													<img src="/static/{{t6c3r3}}">
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr class="bigrow3">
+								<td class="gametable" id="table7"  background={{trans_img.6}} style="border: 3px solid {{highlight_current.6}}">
+									<table>
+										<tr>
+											<td id ="t7c1r1">
+												<button value="t7c1r1" name="block" style={{button_color.6.0.0}}>
+													<img src="/static/{{t7c1r1}}">
+												</button>
+											</td>
+											<td id ="t7c2r1">
+												<button value="t7c2r1" name="block" style={{button_color.6.0.1}}>
+													<img src="/static/{{t7c2r1}}">
+												</button>
+											</td>
+											<td id ="t7c3r1">
+												<button value="t7c3r1" name="block"  style={{button_color.6.0.2}}>
+													<img src="/static/{{t7c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t7c1r2">
+												<button value="t7c1r2" name="block"  style={{button_color.6.1.0}}>
+													<img src="/static/{{t7c1r2}}">
+												</button>
+											</td>
+											<td id ="t7c2r2">
+												<button value="t7c2r2" name="block"  style={{button_color.6.1.1}}>
+													<img src="/static/{{t7c2r2}}">
+												</button>
+											</td>
+											<td id ="t7c3r2">
+												<button value="t7c3r2" name="block"  style={{button_color.6.1.2}}>
+													<img src="/static/{{t7c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t7c1r3">
+												<button value="t7c1r3" name="block" style={{button_color.6.2.0}}>
+													<img src="/static/{{t7c1r3}}">
+												</button>
+											</td>
+											<td id ="t7c2r3">
+												<button value="t7c2r3" name="block" style={{button_color.6.2.1}}>
+													<img src="/static/{{t7c2r3}}">
+												</button>
+											</td>
+											<td id ="t7c3r3">
+												<button value="t7c3r3" name="block"  style={{button_color.6.2.2}}>
+													<img src="/static/{{t7c3r3}}">
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="gametable" id="table8"  background={{trans_img.7}} style="border: 3px solid {{highlight_current.7}}">
+									<table>
+										<tr>
+											<td id ="t8c1r1">
+												<button value="t8c1r1" name="block" style={{button_color.7.0.0}}>
+													<img src="/static/{{t8c1r1}}">
+												</button>
+											</td>
+											<td id ="t8c2r1">
+												<button value="t8c2r1" name="block" style={{button_color.7.0.1}}>
+													<img src="/static/{{t8c2r1}}">
+												</button>
+											</td>
+											<td id ="t8c3r1">
+												<button value="t8c3r1" name="block"  style={{button_color.7.0.2}}>
+													<img src="/static/{{t8c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t8c1r2">
+												<button value="t8c1r2" name="block"  style={{button_color.7.1.0}}>
+													<img src="/static/{{t8c1r2}}">
+												</button>
+											</td>
+											<td id ="t8c2r2">
+												<button value="t8c2r2" name="block"  style={{button_color.7.1.1}}>
+													<img src="/static/{{t8c2r2}}">
+												</button>
+											</td>
+											<td id ="t8c3r2">
+												<button value="t8c3r2" name="block"  style={{button_color.7.1.2}}>
+													<img src="/static/{{t8c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t8c1r3">
+												<button value="t8c1r3" name="block" style={{button_color.7.2.0}}>
+													<img src="/static/{{t8c1r3}}">
+												</button>
+											</td>
+											<td id ="t8c2r3">
+												<button value="t8c2r3" name="block" style={{button_color.7.2.1}}>
+													<img src="/static/{{t8c2r3}}">
+												</button>
+											</td>
+											<td id ="t8c3r3">
+												<button value="t8c3r3" name="block"  style={{button_color.7.2.2}}>
+													<img src="/static/{{t8c3r3}}">
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td class="gametable" id="table9"  background={{trans_img.8}} style="border: 3px solid {{highlight_current.8}}">
+									<table>
+										<tr>
+											<td id ="t9c1r1">
+												<button value="t9c1r1" name="block" style={{button_color.8.0.0}}>
+													<img src="/static/{{t9c1r1}}">
+												</button>
+											</td>
+											<td id ="t9c2r1">
+												<button value="t9c2r1" name="block" style={{button_color.8.0.1}}>
+													<img src="/static/{{t9c2r1}}">
+												</button>
+											</td>
+											<td id ="t9c3r1">
+												<button value="t9c3r1" name="block"  style={{button_color.8.0.2}}>
+													<img src="/static/{{t9c3r1}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t9c1r2">
+												<button value="t9c1r2" name="block"  style={{button_color.8.1.0}}>
+													<img src="/static/{{t9c1r2}}">
+												</button>
+											</td>
+											<td id ="t9c2r2">
+												<button value="t9c2r2" name="block"  style={{button_color.8.1.1}}>
+													<img src="/static/{{t9c2r2}}">
+												</button>
+											</td>
+											<td id ="t9c3r2">
+												<button value="t9c3r2" name="block"  style={{button_color.8.1.2}}>
+													<img src="/static/{{t9c3r2}}">
+												</button>
+											</td>
+										</tr>
+										<tr>
+											<td id ="t9c1r3">
+												<button value="t9c1r3" name="block" style={{button_color.8.2.0}}>
+													<img src="/static/{{t9c1r3}}">
+												</button>
+											</td>
+											<td id ="t9c2r3">
+												<button value="t9c2r3" name="block" style={{button_color.8.2.1}}>
+													<img src="/static/{{t9c2r3}}">
+												</button>
+											</td>
+											<td id ="t9c3r3">
+												<button value="t9c3r3" name="block"  style={{button_color.8.2.2}}>
+													<img src="/static/{{t9c3r3}}">
+												</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+						<input type="hidden" name="StringMatrix" value={{StringMatrix}}>
+						<input type="hidden" name="last_move" value={{last_move}}>
+						<input type="hidden" name="WinMessage" value={{Winner}}>
+					</form>
+					<form>
+						<input type="submit" name="Reset" method ="reset" value="Reset">
+					</form>
+				
+			</td>
+		</tr>
+	</table>
+	</div>
+</body>
+</html>

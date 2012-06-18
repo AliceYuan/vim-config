@@ -11,7 +11,7 @@ How to install:
 
 cd ~
 
-git git://github.com/AliceYuan/vim-config-AY.git
+git clone git://github.com/AliceYuan/vim-config-AY.git
 
 mv vim-config-AY .vim
 

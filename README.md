@@ -11,7 +11,9 @@ How to install:
 
 cd ~
 
-git clone git@github.com:AliceYuan/vim-config-AY.git
+git git://github.com/AliceYuan/vim-config-AY.git
+
+mv vim-config-AY .vim
 
 cd .vim/.vimrc ~/
 

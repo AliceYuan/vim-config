@@ -6,17 +6,19 @@ My vim config :)
 Version 1.10: July 11 2012
 
 Plugins Used:
-Pathogen
-Tagbar
-Syntastic
-Tcomment
-SnipMate
-surround
-syntax
-drupal_vim
-matchit
-YankRing
-Nerdtree
+* Pathogen
+* Tagbar
+* Syntastic
+* Tcomment
+* SnipMate
+* surround
+* syntax
+* drupal_vim
+* matchit
+* YankRing
+* Nerdtree
+* SuperTab
+
 ....
 moar to come :P
 
@@ -25,15 +27,10 @@ moar to come :P
 How to install:
 
 cd ~
-
 git clone git://github.com/AliceYuan/vim-config-AY.git .vim
-
 cd ~/.vim
-
 ln -s ~/.vim/.vimrc ~/.vimrc
-
 git submodule init
-
 git submodule sync
 
 

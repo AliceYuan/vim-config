@@ -11,11 +11,12 @@ How to install:
 
 cd ~
 
-git clone git://github.com/AliceYuan/vim-config-AY.git
-
-mv vim-config-AY .vim
+git clone git://github.com/AliceYuan/vim-config-AY.git .vim
 
 cd .vim/.vimrc ~/
 
+git submodule init
+
+git submodule sync
 
 

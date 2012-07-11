@@ -318,6 +318,9 @@ autocmd FileType php let b:surround_45 = "<?php \r ?>"
 autocmd FileType html let b:surround_45 = "<?php \r ?>"
 "php tag mapped to '-'
 
+"Tagbar
+nmap <leader>t :TagbarToggle<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

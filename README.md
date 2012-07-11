@@ -3,9 +3,24 @@ vim-config-AY
 
 My vim config :)
 
-Version 1.00: June 18 2012
+Version 1.10: July 11 2012
 
-Check Vimrc for plugins used.
+Plugins Used:
+Pathogen
+Tagbar
+Syntastic
+Tcomment
+SnipMate
+surround
+syntax
+drupal_vim
+matchit
+YankRing
+Nerdtree
+....
+moar to come :P
+
+
 
 How to install:
 

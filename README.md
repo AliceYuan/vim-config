@@ -26,11 +26,11 @@ moar to come :P
 
 <h3> How to install: </h3>
 
-cd ~  </br>
-git clone git://github.com/AliceYuan/vim-config-AY.git .vim  </br>
-cd ~/.vim  </br>
-ln -s ~/.vim/.vimrc ~/.vimrc  </br>
-git submodule init  </br>
-git submodule sync  </br>
+cd ~
+git clone git://github.com/AliceYuan/vim-config-AY.git .vim
+cd ~/.vim
+ln -s ~/.vim/.vimrc ~/.vimrc
+git submodule init
+git submodule sync
 
 

@@ -13,7 +13,9 @@ cd ~
 
 git clone git://github.com/AliceYuan/vim-config-AY.git .vim
 
-cd .vim/.vimrc ~/
+cd ~/.vim
+
+ln -s ~/.vim/.vimrc ~/.vimrc
 
 git submodule init
 

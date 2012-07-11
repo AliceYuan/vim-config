@@ -54,7 +54,7 @@ let g:mapleader = ","
 
 " Fast saving
 nmap <leader>w :w!<cr>
-" Save by ctrl-s (I know I cheat ): )
+" Save by ctrl-s (I know I cheat :D )
 map <C-s> :w!<CR>
 " if in insert mode go back to insert mode
 imap <C-s> <Esc>:w!<CR>
@@ -321,9 +321,13 @@ autocmd FileType html let b:surround_45 = "<?php \r ?>"
 "Tagbar
 nmap <leader>t :TagbarToggle<CR>
 
+"YankRing
+nnoremap <leader>y :YRShow<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => MISC
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>m mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
+
